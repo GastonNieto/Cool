@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1038179524105",
+    "firebase_url": "https://ofertashoy-ec5b3.firebaseio.com",
+    "project_id": "ofertashoy-ec5b3",
+    "storage_bucket": "ofertashoy-ec5b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038179524105:android:2c0860c63fac5f2f",
+        "android_client_info": {
+          "package_name": "com.example.gaston.ofertashoy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038179524105-lfr8lt35k8g7db4ppel2jg29tljm378a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gaston.ofertashoy",
+            "certificate_hash": "14166e511268e72199684ade69d1697b56dda2b7"
+          }
+        },
+        {
+          "client_id": "1038179524105-8jriidqm1pnj5fn5us9hgn4u9fvieumt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2MKomjUiIp8M3QIPrxDYB0P5yAB4u074"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1038179524105-8jriidqm1pnj5fn5us9hgn4u9fvieumt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
