@@ -1,11 +1,9 @@
 package com.example.gaston.ofertashoy.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,13 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.gaston.ofertashoy.Adaptadores.AdapterProductos;
 import com.example.gaston.ofertashoy.R;
-import com.example.gaston.ofertashoy.objetos.Comercios;
-import com.example.gaston.ofertashoy.objetos.productos;
+import com.example.gaston.ofertashoy.Modelo.Comercios;
+import com.example.gaston.ofertashoy.Modelo.productos;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;

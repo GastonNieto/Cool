@@ -4,17 +4,15 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.gaston.ofertashoy.Adaptadores.AdapterLista;
 import com.example.gaston.ofertashoy.R;
-import com.example.gaston.ofertashoy.objetos.Lista;
+import com.example.gaston.ofertashoy.Modelo.Lista;
 import com.example.gaston.ofertashoy.util.Preferencias;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;

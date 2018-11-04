@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".Vista.LoginActivity"
             android:theme="@style/nobar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

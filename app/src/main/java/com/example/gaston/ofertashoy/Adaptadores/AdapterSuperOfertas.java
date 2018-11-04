@@ -2,7 +2,6 @@ package com.example.gaston.ofertashoy.Adaptadores;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +14,7 @@ import android.widget.TextView;
 import com.example.gaston.ofertashoy.PrincipalActivity;
 import com.example.gaston.ofertashoy.R;
 import com.example.gaston.ofertashoy.fragment.localFragment;
-import com.example.gaston.ofertashoy.objetos.Comercios;
+import com.example.gaston.ofertashoy.Modelo.Comercios;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

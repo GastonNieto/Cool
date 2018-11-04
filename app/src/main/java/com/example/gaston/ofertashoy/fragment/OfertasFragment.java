@@ -1,6 +1,5 @@
 package com.example.gaston.ofertashoy.fragment;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,20 +8,13 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TableLayout;
 
-import com.example.gaston.ofertashoy.Adaptadores.AdapterOfertas;
 import com.example.gaston.ofertashoy.Adaptadores.AdapterSuperOfertas;
 import com.example.gaston.ofertashoy.R;
-import com.example.gaston.ofertashoy.objetos.Comercios;
+import com.example.gaston.ofertashoy.Modelo.Comercios;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;

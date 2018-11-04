@@ -16,11 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gaston.ofertashoy.R;
-import com.example.gaston.ofertashoy.objetos.Lista;
+import com.example.gaston.ofertashoy.Modelo.Lista;
 import com.example.gaston.ofertashoy.util.Preferencias;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;

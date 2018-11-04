@@ -7,14 +7,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gaston.ofertashoy.R;
-import com.example.gaston.ofertashoy.objetos.productos;
+import com.example.gaston.ofertashoy.Modelo.productos;
 import com.example.gaston.ofertashoy.util.Preferencias;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

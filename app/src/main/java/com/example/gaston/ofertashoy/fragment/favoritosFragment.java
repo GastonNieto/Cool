@@ -14,8 +14,8 @@ import android.widget.TextView;
 
 import com.example.gaston.ofertashoy.Adaptadores.AdapterFavoritos;
 import com.example.gaston.ofertashoy.R;
-import com.example.gaston.ofertashoy.objetos.Usuario;
-import com.example.gaston.ofertashoy.objetos.productos;
+import com.example.gaston.ofertashoy.Modelo.Usuario;
+import com.example.gaston.ofertashoy.Modelo.productos;
 import com.example.gaston.ofertashoy.util.Preferencias;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;

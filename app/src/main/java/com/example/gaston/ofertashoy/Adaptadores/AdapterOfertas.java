@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gaston.ofertashoy.R;
-import com.example.gaston.ofertashoy.objetos.Comercios;
+import com.example.gaston.ofertashoy.Modelo.Comercios;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

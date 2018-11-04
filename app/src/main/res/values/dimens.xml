@@ -11,5 +11,9 @@
     <dimen name="texto_order">10sp</dimen>
     <dimen name="list_size">35dp</dimen>
 
-    <dimen name="imagen_categoria">100dp</dimen>
+    <dimen name="imagen_categoria">24dp</dimen>
+
+    <dimen name= "categoria_w">160dp</dimen>
+    <dimen name= "categoria_l">200dp</dimen>
+
 </resources>

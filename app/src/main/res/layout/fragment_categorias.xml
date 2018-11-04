@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".fragment.CategoriasFragment">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
             android:text="Categorías"
             android:textColor="@color/primary_text"
             android:textSize="@dimen/title_size"
@@ -23,384 +22,399 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:gravity="center"
             android:orientation="horizontal">
 
-            <View
-                android:layout_width="0dip"
-                android:layout_height="wrap_content" />
-
             <android.support.v7.widget.CardView
-                android:layout_width="1dp"
-                android:layout_height="190dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="6"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="1dp">
+                android:layout_width="@dimen/categoria_w"
+                android:layout_height="@dimen/categoria_l"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="vertical">
 
-                    <!-- <de.hdodenhof.circleimageview.CircleImageView
-                         android:src="@drawable/ic_ropaaccesorios"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:layout_gravity="center_horizontal"
-                         app:civ_border_color="@color/primary_text"
-                         app:civ_border_width="4dp" />-->
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circle_red"
+                        android:padding="10dp"
                         android:src="@drawable/ic_ropaaccesorios" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:text="Ropa y Accesorios"
                         android:textAlignment="center"
                         android:textColor="@color/primary_text"
                         android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:background="#ededed" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="item..." />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="item..." />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="item..." />
                 </LinearLayout>
+
             </android.support.v7.widget.CardView>
-
-            <View
-                android:layout_width="0dip"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
             <android.support.v7.widget.CardView
-                android:layout_width="1dp"
-                android:layout_height="190dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="5dp"
-                android:layout_weight="6"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="1dp">
+                android:layout_width="@dimen/categoria_w"
+                android:layout_height="@dimen/categoria_l"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="vertical">
 
-                    <!-- <de.hdodenhof.circleimageview.CircleImageView
-                         android:src="@drawable/ic_ropaaccesorios"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:layout_gravity="center_horizontal"
-                         app:civ_border_color="@color/primary_text"
-                         app:civ_border_width="4dp" />-->
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circle_amarillo"
+                        android:padding="10dp"
                         android:src="@drawable/ic_supermercados" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Super Mercados"
+                        android:layout_marginTop="10dp"
+                        android:text="Alimentos"
                         android:textAlignment="center"
                         android:textColor="@color/primary_text"
                         android:textStyle="bold" />
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
 
-            <View
-                android:layout_width="0dip"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="1dp"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="0dip"
-                android:layout_height="wrap_content" />
-
-            <android.support.v7.widget.CardView
-                android:layout_width="1dp"
-                android:layout_height="190dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="6"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">|
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_informatica" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:background="#ededed" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Informática y Tecnología"
-                        android:textAlignment="center"
-                        android:textColor="@color/primary_text"
-                        android:textStyle="bold" />
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="item..." />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="item..." />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="item..." />
                 </LinearLayout>
+
             </android.support.v7.widget.CardView>
-
-
-            <View
-                android:layout_width="0dip"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <android.support.v7.widget.CardView
-                android:layout_width="1dp"
-                android:layout_height="190dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="5dp"
-                android:layout_weight="6"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="1dp">
+                android:layout_width="@dimen/categoria_w"
+                android:layout_height="@dimen/categoria_l"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circle_verde"
+                        android:padding="10dp"
                         android:src="@drawable/ic_hogarymuebles" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Hogar y muebles"
+                        android:layout_marginTop="10dp"
+                        android:text="Hogar"
                         android:textAlignment="center"
                         android:textColor="@color/primary_text"
                         android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:background="#ededed" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="item..." />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="item..." />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="item..." />
                 </LinearLayout>
+
             </android.support.v7.widget.CardView>
-
-            <View
-                android:layout_width="0dip"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="1dp"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="0dip"
-                android:layout_height="wrap_content" />
-
             <android.support.v7.widget.CardView
-                android:layout_width="1dp"
-                android:layout_height="190dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="6"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="1dp">
+                android:layout_width="@dimen/categoria_w"
+                android:layout_height="@dimen/categoria_l"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="vertical">
 
-                    <!-- <de.hdodenhof.circleimageview.CircleImageView
-                         android:src="@drawable/ic_ropaaccesorios"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:layout_gravity="center_horizontal"
-                         app:civ_border_color="@color/primary_text"
-                         app:civ_border_width="4dp" />-->
                     <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circle_azul"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_tecnologia" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Tecnología"
+                        android:textAlignment="center"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:background="#ededed" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="item..." />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="item..." />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="item..." />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="@dimen/categoria_w"
+                android:layout_height="@dimen/categoria_l"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circle_marron"
+                        android:padding="10dp"
                         android:src="@drawable/ic_vehiculo" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Vehículo y accesorios"
+                        android:layout_marginTop="10dp"
+                        android:text="Vehículos"
                         android:textAlignment="center"
                         android:textColor="@color/primary_text"
                         android:textStyle="bold" />
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
 
-
-            <View
-                android:layout_width="0dip"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
-            <android.support.v7.widget.CardView
-                android:layout_width="1dp"
-                android:layout_height="190dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="5dp"
-                android:layout_weight="6"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_librerias" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:background="#ededed" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Librerias"
-                        android:textAlignment="center"
-                        android:textColor="@color/primary_text"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="item..." />
 
-            <View
-                android:layout_width="0dip"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="1dp"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="0dip"
-                android:layout_height="wrap_content" />
-
-            <android.support.v7.widget.CardView
-                android:layout_width="1dp"
-                android:layout_height="190dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="6"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <!-- <de.hdodenhof.circleimageview.CircleImageView
-                         android:src="@drawable/ic_ropaaccesorios"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:layout_gravity="center_horizontal"
-                         app:civ_border_color="@color/primary_text"
-                         app:civ_border_width="4dp" />-->
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_mas" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Otras categorías"
-                        android:textAlignment="center"
-                        android:textColor="@color/primary_text"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-
-            <View
-                android:layout_width="0dip"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
-            <android.support.v7.widget.CardView
-                android:layout_width="1dp"
-                android:layout_height="190dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="5dp"
-                android:layout_weight="6"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <!-- <de.hdodenhof.circleimageview.CircleImageView
-                         android:src="@drawable/ic_ropaaccesorios"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:layout_gravity="center_horizontal"
-                         app:civ_border_color="@color/primary_text"
-                         app:civ_border_width="4dp" />-->
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_servicios" />
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="item..." />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="item..." />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="@dimen/categoria_w"
+                android:layout_height="@dimen/categoria_l"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circle_rosa"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_otros" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Servicios"
+                        android:layout_marginTop="10dp"
+                        android:text="Tecnología"
                         android:textAlignment="center"
                         android:textColor="@color/primary_text"
                         android:textStyle="bold" />
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
 
-            <View
-                android:layout_width="0dip"
-                android:layout_height="wrap_content" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:background="#ededed" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="item..." />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="item..." />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="item..." />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
         </LinearLayout>
 
     </LinearLayout>

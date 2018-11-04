@@ -1,12 +1,9 @@
 package com.example.gaston.ofertashoy;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -28,13 +25,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.gaston.ofertashoy.fragment.CategoriasFragment;
 import com.example.gaston.ofertashoy.fragment.ListaComprasFragment;
-import com.example.gaston.ofertashoy.fragment.OfertasFragment;
 import com.example.gaston.ofertashoy.fragment.favoritosFragment;
-import com.example.gaston.ofertashoy.objetos.Lista;
-import com.example.gaston.ofertashoy.objetos.Usuario;
+import com.example.gaston.ofertashoy.Modelo.Lista;
+import com.example.gaston.ofertashoy.Modelo.Usuario;
 import com.example.gaston.ofertashoy.util.Preferencias;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,7 +40,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.example.gaston.ofertashoy.objetos;
+package com.example.gaston.ofertashoy.Modelo;
 
 import java.io.Serializable;
 import java.util.Date;
