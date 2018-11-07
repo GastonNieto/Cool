@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#C62828</color>
-    <color name="colorPrimaryDark">#B71C1C</color>
-    <color name="primary_light">#EF5350</color>
+    <color name="colorPrimary">#fafafa</color>
+    <color name="colorPrimaryDark">#c7c7c7</color>
+    <color name="primary_light">#ffffff</color>
     <color name="colorAccent">#E040FB</color>
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>
@@ -42,6 +42,16 @@
     <color name="md_red_A200">#FF5252</color>
     <color name="md_red_A400">#FF1744</color>
     <color name="md_red_A700">#D50000</color>
+
+
+        <color name="primaryColor">#fafafa</color>
+        <color name="primaryLightColor">#ffffff</color>
+        <color name="primaryDarkColor">#c7c7c7</color>
+        <color name="secondaryColor">#ffa000</color>
+        <color name="secondaryLightColor">#ffd149</color>
+        <color name="secondaryDarkColor">#c67100</color>
+        <color name="primaryTextColor">#000000</color>
+        <color name="secondaryTextColor">#000000</color>
 
 </resources>
 

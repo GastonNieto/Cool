@@ -16,7 +16,10 @@ tools:showIn="navigation_view">
         android:id="@+id/nav_slideshow"
         android:icon="@drawable/ic_mail"
         android:title="Lista de compras" />
-
+    <item
+        android:id="@+id/Mitienda"
+        android:icon="@drawable/ic_mail"
+        android:title="Mi Tienda" />
 </group>
 
 <item android:title="Communicate">

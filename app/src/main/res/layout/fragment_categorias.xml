@@ -41,11 +41,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
                         android:layout_width="64dp"
                         android:layout_height="64dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
                         android:background="@drawable/circle_amarillo"
                         android:padding="10dp"
                         android:src="@drawable/ic_ropaaccesorios" />
@@ -91,6 +91,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="@dimen/categoria_w"
                 android:layout_height="@dimen/categoria_l"
@@ -105,11 +106,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
                         android:layout_width="64dp"
                         android:layout_height="64dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
                         android:background="@drawable/circle_red"
                         android:padding="13dp"
                         android:src="@drawable/ic_supermercados" />
@@ -156,6 +157,7 @@
 
             </androidx.cardview.widget.CardView>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -225,6 +227,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="@dimen/categoria_w"
                 android:layout_height="@dimen/categoria_l"
@@ -288,6 +291,7 @@
 
             </androidx.cardview.widget.CardView>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -357,13 +361,14 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
-                android:theme="@style/MyButton"
                 android:layout_width="@dimen/categoria_w"
                 android:layout_height="@dimen/categoria_l"
                 android:layout_margin="10dp"
                 android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?android:attr/selectableItemBackground"
+                android:theme="@style/MyButton">
 
                 <LinearLayout
                     android:layout_width="match_parent"
