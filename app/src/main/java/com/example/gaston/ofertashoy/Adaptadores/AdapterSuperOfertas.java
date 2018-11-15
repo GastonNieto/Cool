@@ -14,27 +14,27 @@ import android.widget.TextView;
 import com.example.gaston.ofertashoy.PrincipalActivity;
 import com.example.gaston.ofertashoy.R;
 import com.example.gaston.ofertashoy.fragment.localFragment;
-import com.example.gaston.ofertashoy.Modelo.Comercios;
+import com.example.gaston.ofertashoy.Modelo.Tienda;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class AdapterSuperOfertas extends RecyclerView.Adapter<AdapterSuperOfertas.MarcasViewHolder> {
-    List<Comercios> comerciosList;
+    List<Tienda> tiendaList;
 
-    public AdapterSuperOfertas(List<Comercios> comerciosList) {
-        this.comerciosList = comerciosList;
+    public AdapterSuperOfertas(List<Tienda> tiendaList) {
+        this.tiendaList = tiendaList;
     }
 
     @Override
     public MarcasViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_superofertas, parent, false);
-        return new MarcasViewHolder(view, comerciosList);
+        return new MarcasViewHolder(view, tiendaList);
     }
 
     @Override
     public void onBindViewHolder(MarcasViewHolder holder, int position) {
-        Comercios m = comerciosList.get(position);
+        Tienda m = tiendaList.get(position);
         holder.tvsuperofertanombre.setText(m.getNombre());
         holder.tvsuperofertahorario.setText(m.getDescripcion());
         Picasso.get().load(m.getLogo()).into(holder.imagen);
@@ -42,7 +42,7 @@ public class AdapterSuperOfertas extends RecyclerView.Adapter<AdapterSuperOferta
 
     @Override
     public int getItemCount() {
-        return comerciosList.size();
+        return tiendaList.size();
     }
 
     public static class MarcasViewHolder extends RecyclerView.ViewHolder {
@@ -51,7 +51,7 @@ public class AdapterSuperOfertas extends RecyclerView.Adapter<AdapterSuperOferta
         Context context;
         CardView cardView;
 
-        public MarcasViewHolder(final View itemView, final List<Comercios> comerciosList) {
+        public MarcasViewHolder(final View itemView, final List<Tienda> tiendaList) {
             super(itemView);
             context = itemView.getContext();
             imagen = itemView.findViewById(R.id.ivMarca);
@@ -62,7 +62,7 @@ public class AdapterSuperOfertas extends RecyclerView.Adapter<AdapterSuperOferta
                 @Override
                 public void onClick(View v) {
                     int post = getAdapterPosition();
-                    Comercios m = comerciosList.get(post);
+                    Tienda m = tiendaList.get(post);
                     AppCompatActivity activity = (AppCompatActivity) v.getContext();
                     Bundle bundle = new Bundle();
                     PrincipalActivity.navItemIndex = 2;

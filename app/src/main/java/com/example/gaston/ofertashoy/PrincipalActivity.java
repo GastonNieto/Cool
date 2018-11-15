@@ -3,6 +3,8 @@ package com.example.gaston.ofertashoy;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+
+import com.example.gaston.ofertashoy.Vista.MiTiendoFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -209,7 +211,7 @@ public class PrincipalActivity extends AppCompatActivity
                     if (!as.equals("Mitienda")) {
                         transaction.replace(R.id.contenedor, new MiTiendoFragment(), "Lista").commit();
                         navItemIndex = 3;
-                        fab.show();
+                        fab.hide();
 
                     }
 

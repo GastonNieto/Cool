@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.gaston.ofertashoy.Adaptadores.AdapterSuperOfertas;
 import com.example.gaston.ofertashoy.R;
-import com.example.gaston.ofertashoy.Modelo.Comercios;
+import com.example.gaston.ofertashoy.Modelo.Tienda;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -50,9 +50,9 @@ public class OfertasFragment extends Fragment {
     RecyclerView rvnegocios, rvofertascomunes, rvropayaccesorios;
 
     AdapterSuperOfertas adapterMarcas, adapterComercios, adapterRopayAccesorios;
-    List<Comercios> comerciosList;
+    List<Tienda> tiendaList;
     FirebaseFirestore db;
-    List<Comercios> ofertascomunes, ropayaccesorioslist;
+    List<Tienda> ofertascomunes, ropayaccesorioslist;
     CardView cardView;
 
     public OfertasFragment() {
@@ -93,11 +93,11 @@ public class OfertasFragment extends Fragment {
         cardView = view.findViewById(R.id.superofertas);
         db = FirebaseFirestore.getInstance();
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        comerciosList = new ArrayList<>();
+        tiendaList = new ArrayList<>();
         rvnegocios = view.findViewById(R.id.rvSuperOfertas);
         rvnegocios.setHasFixedSize(true);
         rvnegocios.setLayoutManager(layoutManager);
-        adapterMarcas = new AdapterSuperOfertas(comerciosList);
+        adapterMarcas = new AdapterSuperOfertas(tiendaList);
         rvnegocios.setAdapter(adapterMarcas);
         ListenerRegistration documentReference = db.collection("marcas").whereEqualTo("superoferta", "si").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -106,11 +106,11 @@ public class OfertasFragment extends Fragment {
                     return;
                 }
 
-                comerciosList.removeAll(comerciosList);
+                tiendaList.removeAll(tiendaList);
                 for (DocumentSnapshot doc : documentSnapshots) {
-                    Comercios m = doc.toObject(Comercios.class);
+                    Tienda m = doc.toObject(Tienda.class);
 
-                    comerciosList.add(m);
+                    tiendaList.add(m);
                 }
                 Log.e("vacio","entro por vacio");
                 adapterMarcas.notifyDataSetChanged();
@@ -144,7 +144,7 @@ public class OfertasFragment extends Fragment {
 
                 ofertascomunes.removeAll(ofertascomunes);
                 for (DocumentSnapshot doc : queryDocumentSnapshots) {
-                    Comercios m = doc.toObject(Comercios.class);
+                    Tienda m = doc.toObject(Tienda.class);
                     ofertascomunes.add(m);
                 }
                 adapterComercios.notifyDataSetChanged();
@@ -170,7 +170,7 @@ public class OfertasFragment extends Fragment {
 
                 ropayaccesorioslist.removeAll(ropayaccesorioslist);
                 for (DocumentSnapshot doc : queryDocumentSnapshots) {
-                    Comercios m = doc.toObject(Comercios.class);
+                    Tienda m = doc.toObject(Tienda.class);
                     ropayaccesorioslist.add(m);
                 }
                 adapterRopayAccesorios.notifyDataSetChanged();

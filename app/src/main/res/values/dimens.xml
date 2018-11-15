@@ -13,7 +13,9 @@
 
     <dimen name="imagen_categoria">24dp</dimen>
 
-    <dimen name= "categoria_w">160dp</dimen>
-    <dimen name= "categoria_l">200dp</dimen>
+    <dimen name="categoria_w">160dp</dimen>
+    <dimen name="categoria_l">200dp</dimen>
 
+    <dimen name="iconlocal">16dp</dimen>
+    <dimen name="etlargo">58dp</dimen>
 </resources>

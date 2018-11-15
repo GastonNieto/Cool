@@ -1,62 +1,786 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MiTiendoFragment"
-    android:orientation="vertical">
-    <TextView
-        android:textColor="@color/primary_text"
-        android:textSize="24dp"
-        android:text="Mi Tienda"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    android:orientation="vertical"
+    tools:context=".Vista.MiTiendoFragment">
 
-    <com.google.android.material.card.MaterialCardView
-        style="@style/Widget.MaterialComponents.CardView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/mtrl_card_spacing"
-        android:layout_marginRight="@dimen/mtrl_card_spacing"
-        app:cardCornerRadius="10dp"
-       >
+        android:layout_height="match_parent">
 
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-        >
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical">
 
-            <TextView
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/tituloTienda"
+                    android:textSize="@dimen/title_size" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGuardarTienda"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/btnguardar"
+                    android:textColor="@color/primary_text"
+                    app:cornerRadius="18dp" />
+
+            </RelativeLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.MaterialComponents.CardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Identidad"
-                android:textColor="@color/primary_text"
-                android:textSize="18sp" />
+                android:layout_marginLeft="@dimen/mtrl_card_spacing"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/mtrl_card_spacing"
+                app:cardCornerRadius="10dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_margin="10dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <LinearLayout
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nombre" />
+                    android:orientation="vertical">
 
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="110dp"
-                android:layout_height="70dp"
-                android:layout_margin="10dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/noimage" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/tituloIdentidad"
+                        android:textColor="@color/primary_text"
+                        android:textSize="18sp" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#ededed" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="@dimen/iconlocal"
+                            android:src="@drawable/ic_store_mall_directory_black_24dp" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tlNombreTienda"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            app:helperText="*Obligatorio"
+                            app:helperTextEnabled="true">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etNombreTienda"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/etlargo"
+                                android:hint="@string/hintnombre"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="@dimen/iconlocal"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/ic_localcategoria" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tlCategorias"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:helperText="*Obligatorio"
+                                app:helperTextEnabled="true">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etCategorias"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/etlargo"
+                                    android:focusable="false"
+                                    android:hint="@string/categoria"
+                                    android:text="@string/categoria" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="@dimen/iconlocal"
+                                android:src="@drawable/ic_more_categorias" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginStart="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp">
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.chip.ChipGroup
+                                android:id="@+id/cgCategorias"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginBottom="10dp"
+                                app:singleLine="true">
+
+                            </com.google.android.material.chip.ChipGroup>
+                        </HorizontalScrollView>
+                    </LinearLayout>
+
+
+                    <!--
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="49dp"
+                                            android:layout_marginEnd="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:layout_width="34dp"
+                                                android:layout_height="34dp"
+                                                android:layout_marginStart="10dp"
+                                                android:layout_marginTop="@dimen/iconlocal"
+                                                android:layout_marginEnd="10dp"
+                                                android:src="@drawable/ic_localcategoria" />
+
+                                            <RelativeLayout
+                                                android:id="@+id/relativeLayout"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:orientation="horizontal">
+
+                                                <com.google.android.material.textfield.TextInputLayout
+                                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    app:helperText="*Obligatorio"
+                                                    app:helperTextEnabled="true">
+
+                                                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                                        android:id="@+id/actCategorias"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:hint="  Categoria" />
+
+                                                </com.google.android.material.textfield.TextInputLayout>
+
+                                                <androidx.appcompat.widget.AppCompatImageView
+                                                    android:id="@+id/lis"
+                                                    android:layout_width="42dp"
+                                                    android:layout_height="42dp"
+                                                    android:layout_alignParentRight="true"
+                                                    android:layout_marginTop="5dp"
+                                                    android:src="@drawable/ic_more_categorias" />
+                                            </RelativeLayout>
+
+                                        </LinearLayout>
+                    -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivImagenTienda"
+                                android:layout_width="140dp"
+                                android:layout_height="80dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="56dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/noimage" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tlImagenTienda"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="56dp"
+                                app:helperText="*Obligatorio"
+                                app:helperTextEnabled="true">
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnImagenTienda"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="10dp"
+                            android:text="Subir imagen"
+                            android:textColor="@color/primary_text"
+                            app:cornerRadius="18dp" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.MaterialComponents.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/mtrl_card_spacing"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/mtrl_card_spacing"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/titulocontacto"
+                        android:textColor="@color/primary_text"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#ededed" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="@dimen/iconlocal"
+                            android:src="@drawable/ic_localtelefono" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tlTelefono1"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                                android:layout_width="130dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                app:helperText="*Obligatorio"
+                                app:helperTextEnabled="true">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etTelefono1"
+                                    android:layout_width="130dp"
+                                    android:layout_height="@dimen/etlargo"
+                                    android:hint="@string/hinttelefono"
+                                    android:inputType="phone"
+                                    android:maxLength="10"
+                                    android:singleLine="true" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tlTelefono2"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="10dp"
+                                app:helperText="*Opcional"
+                                app:helperTextEnabled="true">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etTelefono2"
+                                    android:layout_width="130dp"
+                                    android:layout_height="@dimen/etlargo"
+                                    android:hint="@string/hinttelefono"
+                                    android:inputType="phone"
+                                    android:singleLine="true"
+                                    android:maxLength="10"
+                                    />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="@dimen/iconlocal"
+                            android:src="@drawable/ic_localdireccion" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tlDireccion"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            app:helperText="*Obligatorio"
+                            app:helperTextEnabled="true">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etDireccion"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/etlargo"
+                                android:hint="@string/hintdireccion"
+                                android:inputType="textMultiLine" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="@dimen/iconlocal"
+                            android:src="@drawable/ic_localmail" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tlEmail"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            app:helperText="*Opcional"
+                            app:helperTextEnabled="true">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etEmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/etlargo"
+                                android:hint="@string/hintemail"
+                                android:inputType="textEmailAddress"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.MaterialComponents.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/mtrl_card_spacing"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/mtrl_card_spacing"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/titulohorario"
+                        android:textColor="@color/primary_text"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#ededed" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="@dimen/iconlocal"
+                            android:src="@drawable/ic_localhorario" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tlHorario"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            app:helperText="*Obligatorio"
+                            app:helperTextEnabled="true">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etHorario"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/etlargo"
+                                android:hint="@string/hinthorario"
+                                android:inputType="textMultiLine" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <!--
+                                        <com.google.android.material.chip.ChipGroup
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal">
+
+                                            <com.google.android.material.chip.Chip
+                                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                                android:layout_width="44dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="12dp"
+                                                android:text="Lu"
+                                                android:textAlignment="center" />
+
+                                            <com.google.android.material.chip.Chip
+                                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                                android:layout_width="44dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="12dp"
+                                                android:text="Ma"
+                                                android:textAlignment="center" />
+
+                                            <com.google.android.material.chip.Chip
+                                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                                android:layout_width="44dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="12dp"
+                                                android:text="Mi"
+                                                android:textAlignment="center" />
+
+                                            <com.google.android.material.chip.Chip
+                                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                                android:layout_width="44dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="12dp"
+                                                android:text="Ju"
+                                                android:textAlignment="center" />
+
+                                            <com.google.android.material.chip.Chip
+                                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                                android:layout_width="44dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="12dp"
+                                                android:text="Vi"
+                                                android:textAlignment="center" />
+
+                                            <com.google.android.material.chip.Chip
+                                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                                android:layout_width="44dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="12dp"
+                                                android:text="Sa"
+                                                android:textAlignment="center" />
+
+                                            <com.google.android.material.chip.Chip
+                                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                                android:layout_width="44dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="12dp"
+                                                android:text="Do"
+                                                android:textAlignment="center" />
+
+                                        </com.google.android.material.chip.ChipGroup>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="10dp"
+                                            android:layout_marginEnd="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:orientation="horizontal">
+
+
+                                            <com.google.android.material.chip.Chip
+                                                android:id="@+id/mujeres"
+                                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                                android:layout_width="61dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="12dp"
+                                                android:text="Lun"
+                                                android:textAlignment="center" />
+
+                                            <RelativeLayout
+                                                android:layout_width="140dp"
+                                                android:layout_height="wrap_content"
+                                                android:orientation="horizontal">
+
+                                                <com.google.android.material.textfield.TextInputLayout
+                                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                                                    android:layout_width="130dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginStart="10dp"
+                                                    android:focusedByDefault="true"
+                                                    app:helperText="*Obligatorio"
+                                                    app:helperTextEnabled="true">
+
+                                                    <com.google.android.material.textfield.TextInputEditText
+                                                        android:id="@+id/primeraHora"
+                                                        android:layout_width="130dp"
+                                                        android:layout_height="wrap_content"
+                                                        android:focusable="false"
+                                                        android:hint="Hora"
+                                                        android:text="Horario" />
+
+                                                </com.google.android.material.textfield.TextInputLayout>
+
+                                                <androidx.appcompat.widget.AppCompatImageView
+                                                    android:layout_width="24dp"
+                                                    android:layout_height="24dp"
+                                                    android:layout_alignParentEnd="true"
+                                                    android:layout_marginTop="5dp"
+                                                    android:src="@drawable/ic_more_categorias" />
+                                            </RelativeLayout>
+
+                                            <View
+                                                android:id="@+id/emptySpace"
+                                                android:layout_width="fill_parent"
+                                                android:layout_height="0dp"
+                                                android:layout_weight="1" />
+
+                                            <RelativeLayout
+                                                android:layout_width="140dp"
+                                                android:layout_height="wrap_content"
+                                                android:orientation="horizontal">
+
+                                                <com.google.android.material.textfield.TextInputLayout
+                                                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                                                    android:layout_width="130dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginStart="10dp"
+                                                    app:helperText="*Obligatorio"
+                                                    app:helperTextEnabled="true">
+
+                                                    <com.google.android.material.textfield.TextInputEditText
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:focusable="false"
+                                                        android:hint="Hora"
+                                                        android:text="Horario" />
+
+                                                </com.google.android.material.textfield.TextInputLayout>
+
+                                                <androidx.appcompat.widget.AppCompatImageView
+                                                    android:layout_width="24dp"
+                                                    android:layout_height="24dp"
+                                                    android:layout_alignParentEnd="true"
+                                                    android:layout_marginTop="5dp"
+                                                    android:src="@drawable/ic_more_categorias" />
+                                            </RelativeLayout>
+
+                                        </LinearLayout>
+                                -->
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.MaterialComponents.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/mtrl_card_spacing"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/mtrl_card_spacing"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/titulodescripcion"
+                        android:textColor="@color/primary_text"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#ededed" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="@dimen/iconlocal"
+                            android:src="@drawable/ic_localdescripcion" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tlDespCorta"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            app:helperText="*Obligatorio"
+                            app:helperTextEnabled="true">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etDespCorta"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/etlargo"
+                                android:hint="@string/corta"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="@dimen/iconlocal"
+                            android:src="@drawable/ic_localdescripcion" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tlDespLarga"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            app:helperText="*Obligatorio"
+                            app:helperTextEnabled="true">
+
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etDespLarga"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/etlargo"
+                                android:hint="@string/larga"
+                                android:inputType="textMultiLine" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+
+    </ScrollView>
 </LinearLayout>

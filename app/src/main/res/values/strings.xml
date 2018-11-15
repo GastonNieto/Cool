@@ -22,4 +22,26 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="keymapa">AIzaSyBrZ907JVP4j6rNPCt6O7RIQwpy8g5rQBI</string>
+
+    <!--TODO: Mi Tienda Textos-->
+    <string name="obligatorio">*Obligatorio</string>
+    <string name="tituloTienda">Mi tienda</string>
+    <string name="btnguardar">Guardar</string>
+
+    <string name="tituloIdentidad">Identidad</string>
+    <string name="hintnombre">Nombre</string>
+    <string name="categoria">Categorias</string>
+    <string name="btnsubirimagen">Subir Imagen</string>
+
+    <string name="titulocontacto">Contacto</string>
+    <string name="hinttelefono">Cel/Tel</string>
+    <string name="hintemail">Email</string>
+    <string name="hintdireccion">Dirección</string>
+
+    <string name="titulohorario">Horarios</string>
+    <string name="hinthorario">Horario</string>
+
+    <string name="titulodescripcion">Descripción</string>
+    <string name="corta">Corta</string>
+    <string name="larga">Larga</string>
 </resources>

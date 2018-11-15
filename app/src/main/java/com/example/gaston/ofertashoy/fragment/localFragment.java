@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.example.gaston.ofertashoy.Adaptadores.AdapterProductos;
 import com.example.gaston.ofertashoy.R;
-import com.example.gaston.ofertashoy.Modelo.Comercios;
+import com.example.gaston.ofertashoy.Modelo.Tienda;
 import com.example.gaston.ofertashoy.Modelo.productos;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -95,7 +95,7 @@ public class localFragment extends Fragment {
         referencias(view);
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-            Comercios id = (Comercios) bundle.getSerializable("comercio");
+            Tienda id = (Tienda) bundle.getSerializable("comercio");
             tvdireccionlocal.setText(id.getDescripcion());
             tvhorariolocal.setText(id.getHorario());
             tvnombrelocal.setText(id.getNombre());

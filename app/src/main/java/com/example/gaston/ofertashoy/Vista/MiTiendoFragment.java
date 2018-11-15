@@ -1,13 +1,25 @@
-package com.example.gaston.ofertashoy;
+package com.example.gaston.ofertashoy.Vista;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.gaston.ofertashoy.Presentador.MiTiendaPresentador;
+import com.example.gaston.ofertashoy.R;
+import com.google.android.material.button.MaterialButton;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import androidx.fragment.app.Fragment;
+
+import static android.app.Activity.RESULT_OK;
 
 
 /**
@@ -18,12 +30,18 @@ import androidx.fragment.app.Fragment;
  * Use the {@link MiTiendoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MiTiendoFragment extends Fragment {
+public class MiTiendoFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private final int PICK_IMAGE = 50;
+    private FirebaseFirestore firestore;
+    private MaterialButton btnimagentienda;
+    private StorageReference mStorageRef;
 
+    MiTiendaPresentador miTiendaPresentador;
+    private Uri filePath;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -61,11 +79,53 @@ public class MiTiendoFragment extends Fragment {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mi_tiendo, container, false);
+        final View view = inflater.inflate(R.layout.fragment_mi_tiendo, container, false);
+        firestore = FirebaseFirestore.getInstance();
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+        miTiendaPresentador = new MiTiendaPresentador(firestore, mStorageRef, getContext());
+        btnimagentienda = view.findViewById(R.id.btnImagenTienda);
+        btnimagentienda.setOnClickListener(this);
+        miTiendaPresentador.referencias(view);
+        return view;
+    }
+    public  void recomendacionDialog(){
+       final Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.dialog_recomendacion_imagenmitienda);
+        MaterialButton btndialogcancelar = dialog.findViewById(R.id.btnDialogRecOk);
+        btndialogcancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                abrirGaleria();
+            }
+        });
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        dialog.setCancelable(false);
+        dialog.show();
+
+    }
+
+    public void abrirGaleria() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent,PICK_IMAGE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            filePath = data.getData();
+            miTiendaPresentador.setfoto(filePath);
+
+        }
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -89,6 +149,15 @@ public class MiTiendoFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnImagenTienda:
+                recomendacionDialog();
+                break;
+        }
     }
 
     /**

@@ -10,16 +10,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gaston.ofertashoy.R;
-import com.example.gaston.ofertashoy.Modelo.Comercios;
+import com.example.gaston.ofertashoy.Modelo.Tienda;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class AdapterOfertas extends RecyclerView.Adapter<AdapterOfertas.OfertasViewHolder>{
-List<Comercios>comerciosList;
+List<Tienda> tiendaList;
 
-    public AdapterOfertas(List<Comercios> comerciosList) {
-        this.comerciosList = comerciosList;
+    public AdapterOfertas(List<Tienda> tiendaList) {
+        this.tiendaList = tiendaList;
     }
 
     @NonNull
@@ -32,15 +32,15 @@ List<Comercios>comerciosList;
 
     @Override
     public void onBindViewHolder(@NonNull OfertasViewHolder holder, int position) {
-        Comercios comercios = comerciosList.get(position);
-        Picasso.get().load(comercios.getLogo()).into(holder.ivcomercioofertaimagen);
-        holder.tvcomercioofertanombre.setText(comercios.getNombre());
-        holder.tvcomercioofertahorario.setText(comercios.getHorario());
+        Tienda tienda = tiendaList.get(position);
+        Picasso.get().load(tienda.getLogo()).into(holder.ivcomercioofertaimagen);
+        holder.tvcomercioofertanombre.setText(tienda.getNombre());
+        holder.tvcomercioofertahorario.setText(tienda.getHorario());
     }
 
     @Override
     public int getItemCount() {
-        return comerciosList.size();
+        return tiendaList.size();
     }
 
     public class OfertasViewHolder extends RecyclerView.ViewHolder {
