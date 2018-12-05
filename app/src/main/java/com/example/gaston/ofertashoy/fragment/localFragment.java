@@ -99,7 +99,7 @@ public class localFragment extends Fragment {
             tvdireccionlocal.setText(id.getDescripcion());
             tvhorariolocal.setText(id.getHorario());
             tvnombrelocal.setText(id.getNombre());
-            Picasso.get().load(id.getLogo()).into(ivlocal);
+            Picasso.get().load(id.getImagen()).into(ivlocal);
             productosList = new ArrayList<>();
             rvoferta = view.findViewById(R.id.rvOfertas);
             rvoferta.setHasFixedSize(true);

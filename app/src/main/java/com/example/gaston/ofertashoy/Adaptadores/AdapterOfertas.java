@@ -33,7 +33,7 @@ List<Tienda> tiendaList;
     @Override
     public void onBindViewHolder(@NonNull OfertasViewHolder holder, int position) {
         Tienda tienda = tiendaList.get(position);
-        Picasso.get().load(tienda.getLogo()).into(holder.ivcomercioofertaimagen);
+        Picasso.get().load(tienda.getImagen()).into(holder.ivcomercioofertaimagen);
         holder.tvcomercioofertanombre.setText(tienda.getNombre());
         holder.tvcomercioofertahorario.setText(tienda.getHorario());
     }

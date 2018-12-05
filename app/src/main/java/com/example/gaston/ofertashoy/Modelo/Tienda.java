@@ -5,16 +5,40 @@ import java.util.ArrayList;
 
 public class Tienda implements Serializable {
     private String propietario;
-    private ArrayList<String> categoria;
+    private ArrayList<String> categorias;
     private ArrayList<String> telefono;
     private String email;
-    private String descripcionLarga;
+    private String descripcionlarga;
     private String nombre;
-    private String logo;
     private String id;
     private String horario;
     private String descripcion;
     private String direccion;
+    private String imagen;
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public ArrayList<String> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(ArrayList<String> categorias) {
+        this.categorias = categorias;
+    }
+
+    public String getDescripcionlarga() {
+        return descripcionlarga;
+    }
+
+    public void setDescripcionlarga(String descripcionlarga) {
+        this.descripcionlarga = descripcionlarga;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 
     public Tienda() {
     }
@@ -25,14 +49,6 @@ public class Tienda implements Serializable {
 
     public void setPropietario(String propietario) {
         this.propietario = propietario;
-    }
-
-    public ArrayList<String> getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(ArrayList<String> categoria) {
-        this.categoria = categoria;
     }
 
     public ArrayList<String> getTelefono() {
@@ -49,14 +65,6 @@ public class Tienda implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getDescripcionLarga() {
-        return descripcionLarga;
-    }
-
-    public void setDescripcionLarga(String descripcionLarga) {
-        this.descripcionLarga = descripcionLarga;
     }
 
     public String getDireccion() {
@@ -99,11 +107,4 @@ public class Tienda implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getLogo() {
-        return logo;
-    }
-
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
 }

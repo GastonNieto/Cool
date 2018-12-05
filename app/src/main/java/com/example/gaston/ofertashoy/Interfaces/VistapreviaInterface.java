@@ -1,4 +1,4 @@
-package com.example.gaston.ofertashoy;
+package com.example.gaston.ofertashoy.Interfaces;
 
 import android.content.Context;
 import android.net.Uri;

@@ -37,7 +37,7 @@ public class AdapterSuperOfertas extends RecyclerView.Adapter<AdapterSuperOferta
         Tienda m = tiendaList.get(position);
         holder.tvsuperofertanombre.setText(m.getNombre());
         holder.tvsuperofertahorario.setText(m.getDescripcion());
-        Picasso.get().load(m.getLogo()).into(holder.imagen);
+        Picasso.get().load(m.getImagen()).into(holder.imagen);
     }
 
     @Override

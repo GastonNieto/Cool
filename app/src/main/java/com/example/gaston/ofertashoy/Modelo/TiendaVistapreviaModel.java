@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.gaston.ofertashoy.R;
-import com.example.gaston.ofertashoy.VistapreviaInterface;
+import com.example.gaston.ofertashoy.Interfaces.VistapreviaInterface;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
@@ -35,6 +35,7 @@ public class TiendaVistapreviaModel implements VistapreviaInterface.model {
     private Dialog dialog;
     int abierto = 0;
     int asd = 0;
+
     public TiendaVistapreviaModel(VistapreviaInterface.Presenter presenter) {
         this.presenter = presenter;
     }
@@ -42,63 +43,95 @@ public class TiendaVistapreviaModel implements VistapreviaInterface.model {
 
     @Override
     public void cargarmodel(final Tienda tienda, Uri uri) {
-        final StorageReference fotoref = reference.child(tienda.getPropietario()).child("Tienda Imagen").child("Imagen");
+        String palabraClave = "firebasestorage";
+        String Direccion = String.valueOf(uri);
+        boolean resultado = Direccion.contains(palabraClave);
 
-        uploadTask = fotoref.putFile(uri);
+        if (!resultado) {
+
+            final StorageReference fotoref = reference.child(tienda.getPropietario()).child("Tienda Imagen").child("Imagen");
+
+            uploadTask = fotoref.putFile(uri);
 
 
-        uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                if(asd==0){
-                    progres(taskSnapshot);
-                }else{
-                    asd = 0;
+            uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                    if (asd == 0) {
+                        progres(taskSnapshot);
+                    } else {
+                        asd = 0;
+                    }
                 }
-            }
-        }).addOnPausedListener(new OnPausedListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onPaused(UploadTask.TaskSnapshot taskSnapshot) {
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-            }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Uri uri1 = taskSnapshot.getDownloadUrl();
-                Map<String, Object> mitienda = new HashMap<>();
-                mitienda.put("nombre", tienda.getNombre());
-                mitienda.put("telefono", tienda.getTelefono());
-                mitienda.put("propietario", tienda.getPropietario());
-                mitienda.put("descripcion", tienda.getDescripcion());
-                mitienda.put("descripcionlarga", tienda.getDescripcionLarga());
-                mitienda.put("horario", tienda.getHorario());
-                mitienda.put("direccion", tienda.getDireccion());
-                mitienda.put("email", tienda.getEmail());
-                mitienda.put("categorias", tienda.getCategoria());
-                mitienda.put("imagen", uri1.toString());
-                firestores.collection("comercios").document("categorias").collection("borrar").document(tienda.getPropietario())
-                        .set(mitienda)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Log.d("Bien", "DocumentSnapshot successfully written!");
+            }).addOnPausedListener(new OnPausedListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onPaused(UploadTask.TaskSnapshot taskSnapshot) {
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Uri uri1 = taskSnapshot.getDownloadUrl();
+                    Map<String, Object> mitienda = new HashMap<>();
+                    mitienda.put("nombre", tienda.getNombre());
+                    mitienda.put("telefono", tienda.getTelefono());
+                    mitienda.put("propietario", tienda.getPropietario());
+                    mitienda.put("descripcion", tienda.getDescripcion());
+                    mitienda.put("descripcionlarga", tienda.getDescripcionlarga());
+                    mitienda.put("horario", tienda.getHorario());
+                    mitienda.put("direccion", tienda.getDireccion());
+                    mitienda.put("email", tienda.getEmail());
+                    mitienda.put("categorias", tienda.getCategorias());
+                    mitienda.put("imagen", uri1.toString());
+                    firestores.collection("comercios").document("categorias").collection("borrar").document(tienda.getPropietario())
+                            .set(mitienda)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d("Bien", "DocumentSnapshot successfully written!");
 
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w("mal", "Error writing document", e);
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w("mal", "Error writing document", e);
 
 
-                            }
-                        });
-            }
-        });
+                                }
+                            });
+                }
+            });
+        } else {
+            firestores.collection("comercios").document("categorias").collection("borrar").document(tienda.getPropietario())
+                    .update("nombre", tienda.getNombre(),
+                            "telefono", tienda.getTelefono(),
+                            "propietario", tienda.getPropietario(),
+                            "descripcion", tienda.getDescripcion(),
+                            "descripcionlarga", tienda.getDescripcionlarga(),
+                            "horario", tienda.getHorario(),
+                            "direccion", tienda.getDireccion(),
+                            "email", tienda.getEmail(),
+                            "categorias", tienda.getCategorias())
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d("Bien", "DocumentSnapshot successfully written!");
 
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("mal", "Error writing document", e);
+
+
+                        }
+                    });
+        }
     }
 
     @Override
@@ -118,7 +151,7 @@ public class TiendaVistapreviaModel implements VistapreviaInterface.model {
             btnpbCancelar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    asd =1;
+                    asd = 1;
                     abierto = 0;
                     uploadTask.cancel();
                     dialog.dismiss();

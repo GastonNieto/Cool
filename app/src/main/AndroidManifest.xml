@@ -39,10 +39,10 @@
             android:value="@string/keymapa" />
 
         <activity android:name=".CrearItemActivity" />
-        <activity android:name=".Vista.TiendaVistapreviaActivity"
-            android:parentActivityName=".PrincipalActivity"/>
-
-
+        <activity
+            android:name=".Vista.TiendaVistapreviaActivity"
+            android:parentActivityName=".PrincipalActivity" />
+        <activity android:name=".Vista.EditarTiendaActivity"></activity>
     </application>
 
 </manifest>

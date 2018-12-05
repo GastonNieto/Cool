@@ -2,23 +2,29 @@ package com.example.gaston.ofertashoy;
 
 import android.content.Context;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 
-import com.example.gaston.ofertashoy.Vista.MiTiendoFragment;
+import com.example.gaston.ofertashoy.Vista.GestionTiendaFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AlertDialog;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+
 import com.google.android.material.navigation.NavigationView;
+
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -163,7 +169,7 @@ public class PrincipalActivity extends AppCompatActivity
             case R.id.nav_camera:
 
                 if (a.isEmpty()) {
-                    transaction.replace(R.id.contenedor, new LocalFragment(), "inicio").commit();
+                    transaction.replace(R.id.contenedor, new CategoriasFragment(), "inicio").commit();
                     navItemIndex = 0;
 
                 } else {
@@ -171,7 +177,7 @@ public class PrincipalActivity extends AppCompatActivity
                         String as = asd.getTag();
                         Log.e("fragmentos", as);
                         if (!as.equals("inicio")) {
-                            transaction.replace(R.id.contenedor, new LocalFragment(), "inicio").commit();
+                            transaction.replace(R.id.contenedor, new CategoriasFragment(), "inicio").commit();
                             navItemIndex = 0;
                             fab.hide();
                         }
@@ -205,12 +211,14 @@ public class PrincipalActivity extends AppCompatActivity
                     }
 
                 }
+                break;
+
             case R.id.Mitienda:
                 for (Fragment asd : getSupportFragmentManager().getFragments()) {
                     String as = asd.getTag();
                     if (!as.equals("Mitienda")) {
-                        transaction.replace(R.id.contenedor, new MiTiendoFragment(), "Lista").commit();
-                        navItemIndex = 3;
+                        transaction.replace(R.id.contenedor, new GestionTiendaFragment(), "Mitienda").commit();
+                        navItemIndex = 4;
                         fab.hide();
 
                     }

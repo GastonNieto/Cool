@@ -5,7 +5,7 @@ import android.net.Uri;
 
 import com.example.gaston.ofertashoy.Modelo.Tienda;
 import com.example.gaston.ofertashoy.Modelo.TiendaVistapreviaModel;
-import com.example.gaston.ofertashoy.VistapreviaInterface;
+import com.example.gaston.ofertashoy.Interfaces.VistapreviaInterface;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.StorageReference;
 

@@ -1,46 +1,37 @@
-package com.example.gaston.ofertashoy.Presentador;
+package com.example.gaston.ofertashoy.Vista;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.gaston.ofertashoy.Modelo.Tienda;
 import com.example.gaston.ofertashoy.R;
-import com.example.gaston.ofertashoy.Vista.TiendaVistapreviaActivity;
 import com.example.gaston.ofertashoy.util.Preferencias;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 
-import androidx.appcompat.widget.AppCompatImageView;
-
-public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchListener {
-    private FirebaseFirestore firestore;
-    private StorageReference mStorageRef;
-    private UploadTask uploadTask;
-    private Context context;
+public class EditarTiendaActivity extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener {
     private Uri filepath;
-
+    private final int PICK_IMAGE = 50;
+    Context context;
     private TextInputLayout tlnombretienda, tltelefono1, tltelefono2, tlemail, tldireccion, tlhorario, tldespcorta, tldesplarga, tlcagetorias, tlimagetienda;
     private TextInputEditText etnombretienda, ettelefono1, ettelefono2, etemail, etdireccion, ethorario, etdepcorta, etdesplarga, etcategorias;
-    private MaterialButton btndialogcancelar, btndialogaceptar, btnguardarmitienda;
+    private MaterialButton btndialogcancelar, btndialogaceptar, btnguardarmitienda, btnimagentienda;
     private AppCompatImageView ivimagentienda;
     private Tienda mitienda = new Tienda();
     private ArrayList<String> telefonos;
@@ -52,55 +43,136 @@ public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchLi
     int test = 0;
     int abierto = 0;
 
-    public MiTiendaPresentador(FirebaseFirestore firestore, StorageReference mStorageRef, Context context) {
-        this.firestore = firestore;
-        this.mStorageRef = mStorageRef;
-        this.context = context;
+    private Tienda tienda;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_editar_tienda);
+        context = this;
+        referencias();
+        Bundle recibido = getIntent().getExtras();
+        tienda = null;
+        if(recibido !=null){
+            tienda = (Tienda) recibido.getSerializable("tiendacargada");
+            cargarDatos(tienda);
+        }
     }
 
-    public void referencias(View view) {
+    public void recomendacionDialog() {
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_recomendacion_imagenmitienda);
+        MaterialButton btndialogcancelar = dialog.findViewById(R.id.btnDialogRecOk);
+        btndialogcancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                abrirGaleria();
+            }
+        });
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        dialog.setCancelable(false);
+        dialog.show();
 
-        btnguardarmitienda = view.findViewById(R.id.btnGuardarTienda);
+    }
 
-        cgcategoria = view.findViewById(R.id.cgCategorias);
+    public void abrirGaleria() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent, PICK_IMAGE);
+    }
 
-        tlnombretienda = view.findViewById(R.id.tlNombreTienda);
-        etnombretienda = view.findViewById(R.id.etNombreTienda);
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
-        tlcagetorias = view.findViewById(R.id.tlCategorias);
-        etcategorias = view.findViewById(R.id.etCategorias);
+            filepath = data.getData();
+            setfoto(filepath);
 
-        tlimagetienda = view.findViewById(R.id.tlImagenTienda);
-        ivimagentienda = view.findViewById(R.id.ivImagenTienda);
+        }
 
-        tltelefono1 = view.findViewById(R.id.tlTelefono1);
-        ettelefono1 = view.findViewById(R.id.etTelefono1);
+    }
 
-        tltelefono2 = view.findViewById(R.id.tlTelefono2);
-        ettelefono2 = view.findViewById(R.id.etTelefono2);
+    public void referencias() {
+        btnimagentienda = findViewById(R.id.btnImagenTienda);
+        btnguardarmitienda = findViewById(R.id.btnGuardarTienda);
 
-        tlemail = view.findViewById(R.id.tlEmail);
-        etemail = view.findViewById(R.id.etEmail);
+        cgcategoria = findViewById(R.id.cgCategorias);
 
-        tldireccion = view.findViewById(R.id.tlDireccion);
-        etdireccion = view.findViewById(R.id.etDireccion);
+        tlnombretienda = findViewById(R.id.tlNombreTienda);
+        etnombretienda = findViewById(R.id.etNombreTienda);
 
-        tlhorario = view.findViewById(R.id.tlHorario);
-        ethorario = view.findViewById(R.id.etHorario);
+        tlcagetorias = findViewById(R.id.tlCategorias);
+        etcategorias = findViewById(R.id.etCategorias);
 
-        tldespcorta = view.findViewById(R.id.tlDespCorta);
-        etdepcorta = view.findViewById(R.id.etDespCorta);
+        tlimagetienda = findViewById(R.id.tlImagenTienda);
+        ivimagentienda = findViewById(R.id.ivImagenTienda);
 
-        tldesplarga = view.findViewById(R.id.tlDespLarga);
-        etdesplarga = view.findViewById(R.id.etDespLarga);
+        tltelefono1 = findViewById(R.id.tlTelefono1);
+        ettelefono1 = findViewById(R.id.etTelefono1);
 
+        tltelefono2 = findViewById(R.id.tlTelefono2);
+        ettelefono2 = findViewById(R.id.etTelefono2);
+
+        tlemail = findViewById(R.id.tlEmail);
+        etemail = findViewById(R.id.etEmail);
+
+        tldireccion = findViewById(R.id.tlDireccion);
+        etdireccion = findViewById(R.id.etDireccion);
+
+        tlhorario = findViewById(R.id.tlHorario);
+        ethorario = findViewById(R.id.etHorario);
+
+        tldespcorta = findViewById(R.id.tlDespCorta);
+        etdepcorta = findViewById(R.id.etDespCorta);
+
+        tldesplarga = findViewById(R.id.tlDespLarga);
+        etdesplarga = findViewById(R.id.etDespLarga);
+
+        btnimagentienda.setOnClickListener(this);
         btnguardarmitienda.setOnClickListener(this);
         etcategorias.setOnTouchListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnDialogCancel:
+                dialog.dismiss();
+                break;
+            case R.id.btnDialogAceptar:
+                dialogAceptar();
+                break;
+            case R.id.btnGuardarTienda:
+                tomarDatos(categorias);
+                break;
+            case R.id.btnImagenTienda:
+                recomendacionDialog();
+                break;
+
+        }
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (v.getId()) {
+            case R.id.etCategorias:
+                etcategorias.setSelectAllOnFocus(true);
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    categoriaDialog();
+                    return true;
+
+
+                }
+                break;
+        }
+
+        return false;
+    }
+
     public void setfoto(Uri uri) {
         filepath = uri;
-        Glide.with(context).load(filepath).into(ivimagentienda);
+        Glide.with(context).load(uri).into(ivimagentienda);
 
 
     }
@@ -109,7 +181,7 @@ public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchLi
         test = 0;
         telefonos = new ArrayList<>();
         mitienda = new Tienda();
-        String s = Preferencias.getString(context, Preferencias.getKeyUser());
+        String s = Preferencias.getString(this, Preferencias.getKeyUser());
         mitienda.setPropietario(s);
         if (etnombretienda.getText().toString().trim().isEmpty()) {
             tlnombretienda.setHelperTextEnabled(false);
@@ -163,7 +235,8 @@ public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchLi
             mitienda.setTelefono(telefonos);
             test = test + 1;
 
-        }if (!ettelefono2.getText().toString().trim().isEmpty()){
+        }
+        if (!ettelefono2.getText().toString().trim().isEmpty()) {
             telefonos.add(ettelefono2.getText().toString().trim());
             mitienda.setTelefono(telefonos);
         }
@@ -230,17 +303,58 @@ public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchLi
         if (test == 8) {
 
             Bundle bundle = new Bundle();
-            Intent intent = new Intent(context, TiendaVistapreviaActivity.class);
+            Intent intent = new Intent(this, TiendaVistapreviaActivity.class);
             bundle.putSerializable("tienda", mitienda);
             bundle.putParcelable("uri", filepath);
             intent.putExtras(bundle);
-            context.startActivity(intent);
+            startActivity(intent);
 
         }
     }
 
+    public void cargarDatos(Tienda tienda) {
+        categorias = tienda.getCategorias();
+        for (int j = 0;j<categorias.size();){
+            final Chip chip = new Chip(this);
+            String aux = categorias.get(j);
+            chip.setText(aux);
+            chip.setCloseIconVisible(true);
+            chip.setOnCloseIconClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    for (int i = 0; i < categorias.size(); ) {
+                        String aux = categorias.get(i);
+                        if (aux.equals(chip.getText().toString())) {
+                            categorias.remove(i);
+                            cgcategoria.removeView(v);
+                        }
+                        ++i;
+                    }
+                }
+            });
+            cgcategoria.addView(chip);
+            ++j;
+        }
+
+        etnombretienda.setText(tienda.getNombre());
+        filepath = Uri.parse(tienda.getImagen());
+        Glide.with(this).load(filepath).into(ivimagentienda);
+        ettelefono1.setText(tienda.getTelefono().get(0));
+        if (tienda.getTelefono().size() == 2) {
+
+            ettelefono2.setText(tienda.getTelefono().get(1));
+        }
+
+        etemail.setText(tienda.getEmail());
+        etdireccion.setText(tienda.getDireccion());
+        ethorario.setText(tienda.getHorario());
+        etdepcorta.setText(tienda.getDescripcion());
+        etdesplarga.setText(tienda.getDescripcionlarga());
+
+    }
+
     public void categoriaDialog() {
-        dialog = new Dialog(context);
+        dialog = new Dialog(this);
         dialog.setContentView(R.layout.categorias);
         btndialogcancelar = dialog.findViewById(R.id.btnDialogCancel);
         btndialogaceptar = dialog.findViewById(R.id.btnDialogAceptar);
@@ -252,26 +366,6 @@ public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchLi
         dialog.show();
 
     }
-
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnDialogCancel:
-                dialog.dismiss();
-                break;
-            case R.id.btnDialogAceptar:
-                dialogAceptar();
-                break;
-            case R.id.btnGuardarTienda:
-                tomarDatos(categorias);
-
-
-                }
-
-
-        }
-
 
     public void dialogReferencias(Dialog dialog) {
 
@@ -306,13 +400,12 @@ public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchLi
         }
     }
 
-
     public void dialogAceptar() {
         categorias.clear();
         cgcategoria.removeAllViews();
         if (cpropayaccesorios.isChecked()) {
             categorias.add(cpropayaccesorios.getText().toString());
-            final Chip chip = new Chip(context);
+            final Chip chip = new Chip(this);
             chip.setText(cpropayaccesorios.getText().toString());
             chip.setCloseIconVisible(true);
             chip.setOnCloseIconClickListener(new View.OnClickListener() {
@@ -334,7 +427,7 @@ public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchLi
         }
         if (cpalimentos.isChecked()) {
             categorias.add(cpalimentos.getText().toString());
-            final Chip chip = new Chip(context);
+            final Chip chip = new Chip(this);
             chip.setText(cpalimentos.getText().toString());
             chip.setCloseIconVisible(true);
             chip.setOnCloseIconClickListener(new View.OnClickListener() {
@@ -357,7 +450,7 @@ public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchLi
         }
         if (cpservicios.isChecked()) {
             categorias.add(cpservicios.getText().toString());
-            final Chip chip = new Chip(context);
+            final Chip chip = new Chip(this);
             chip.setText(cpservicios.getText().toString());
             chip.setCloseIconVisible(true);
             chip.setOnCloseIconClickListener(new View.OnClickListener() {
@@ -380,7 +473,7 @@ public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchLi
         }
         if (cptecnologia.isChecked()) {
             categorias.add(cptecnologia.getText().toString());
-            final Chip chip = new Chip(context);
+            final Chip chip = new Chip(this);
             chip.setText(cptecnologia.getText().toString());
             chip.setCloseIconVisible(true);
             chip.setOnCloseIconClickListener(new View.OnClickListener() {
@@ -403,7 +496,7 @@ public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchLi
         }
         if (cphogar.isChecked()) {
             categorias.add(cphogar.getText().toString());
-            final Chip chip = new Chip(context);
+            final Chip chip = new Chip(this);
             chip.setText(cphogar.getText().toString());
             chip.setCloseIconVisible(true);
             chip.setOnCloseIconClickListener(new View.OnClickListener() {
@@ -426,7 +519,7 @@ public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchLi
         }
         if (cpvehiculo.isChecked()) {
             categorias.add(cpvehiculo.getText().toString());
-            final Chip chip = new Chip(context);
+            final Chip chip = new Chip(this);
             chip.setText(cpvehiculo.getText().toString());
             chip.setCloseIconVisible(true);
             chip.setOnCloseIconClickListener(new View.OnClickListener() {
@@ -450,57 +543,4 @@ public class MiTiendaPresentador implements View.OnClickListener, View.OnTouchLi
         dialog.dismiss();
 
     }
-
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        switch (v.getId()) {
-            case R.id.etCategorias:
-                etcategorias.setSelectAllOnFocus(true);
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    categoriaDialog();
-                    return true;
-
-
-                }
-                break;
-        }
-
-        return false;
-    }
-
-    public boolean checkConnection() {
-        ConnectivityManager cManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
-
-
-        NetworkInfo ninfo = cManager.getActiveNetworkInfo();
-
-
-        if (ninfo != null && ninfo.isConnected())
-
-        {
-            isOnlineNet();
-            Toast.makeText(context, "Available", Toast.LENGTH_LONG).show();
-            return true;
-        } else {
-            Toast.makeText(context, "Not Available", Toast.LENGTH_LONG).show();
-            return false;
-        }
-    }
-
-    public Boolean isOnlineNet() {
-
-        try {
-            Process p = java.lang.Runtime.getRuntime().exec("ping -c 1 www.google.com.ar");
-
-            int val = p.waitFor();
-            boolean reachable = (val == 0);
-            return reachable;
-
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return false;
-    }
-
 }

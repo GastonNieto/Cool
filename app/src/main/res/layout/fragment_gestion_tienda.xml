@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearGestionTienda"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Vista.GestionTiendaFragment">
+
+    <LinearLayout
+        android:id="@+id/lGestionTienda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEditarTienda"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="Editar"
+                android:textColor="@color/primary_text"
+                app:cornerRadius="18dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEliminarTienda"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="Eliminar"
+                android:textColor="@color/primary_text"
+                app:cornerRadius="18dp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.MaterialComponents.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:minHeight="200dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/ivImagenGestionTienda"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="h,16:9"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/titulo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@id/rd">
+
+                                <TextView
+                                    android:id="@+id/tvnombreGestionTienda"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="17dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:textColor="@color/primary_text"
+                                    android:textSize="24dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rd"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:orientation="vertical">
+
+                                <ImageButton
+                                    android:id="@+id/ibtnMasInfo"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginTop="10dp"
+                                    android:background="@drawable/ic_expand_more_black_24dp" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linearMasInfo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="#ededed" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="16dp"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="19dp"
+                                    android:layout_height="19dp"
+                                    android:src="@drawable/ic_localdescripcion" />
+
+                                <TextView
+                                    android:id="@+id/tvDescripcionGestionTienda"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="Ropa deportiva y urbana"
+                                    android:textSize="14dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginEnd="16dp"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="19dp"
+                                    android:layout_height="19dp"
+                                    android:src="@drawable/ic_localhorario" />
+
+                                <TextView
+                                    android:id="@+id/tvHorarioGestionTienda"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="Lun. - Vie. 08:00 a 22:00, Sab. 08:00 a 13:00"
+                                    android:textSize="14dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginEnd="16dp"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="19dp"
+                                    android:layout_height="19dp"
+                                    android:src="@drawable/ic_localtelefono" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:id="@+id/tvTelGestionTienda"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="5dp"
+                                        android:layout_marginEnd="20dp"
+                                        android:layout_weight="1"
+                                        android:text="3804391610"
+                                        android:textSize="14dp" />
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/linearEmailGestionTienda"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginEnd="16dp"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="19dp"
+                                    android:layout_height="19dp"
+                                    android:src="@drawable/ic_localmail" />
+
+                                <TextView
+                                    android:id="@+id/tvEmailGestionTienda"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="gaston.92.08@gmail.com"
+                                    android:textSize="14dp" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginEnd="16dp"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="19dp"
+                                    android:layout_height="19dp"
+                                    android:src="@drawable/ic_localdireccion" />
+
+                                <TextView
+                                    android:id="@+id/tvDireccionGestionTienda"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="Base Grenal belgrano 1324 antartinda II"
+                                    android:textSize="14dp" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginEnd="16dp"
+                                android:layout_marginBottom="10dp"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="19dp"
+                                    android:layout_height="19dp"
+                                    android:src="@drawable/ic_localdescripcion" />
+
+                                <TextView
+                                    android:id="@+id/tvDespLargaGestionTienda"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="Base Grenal belgrano 1324 antartinda II"
+                                    android:textSize="14dp" />
+
+
+                            </LinearLayout>
+                            <!--
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginStart="16dp"
+                                                            android:orientation="horizontal">
+
+                                                            <androidx.appcompat.widget.AppCompatImageView
+                                                                android:layout_width="19dp"
+                                                                android:layout_height="19dp"
+                                                                android:src="@drawable/ic_localdescripcion" />
+
+                                                            <TextView
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_marginStart="5dp"
+                                                                android:text="Ropa deportiva y urbana"
+                                                                android:textSize="14dp" />
+
+                                                        </LinearLayout>
+
+                                                        <LinearLayout
+
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginStart="16dp"
+                                                            android:layout_marginTop="7dp"
+                                                            android:orientation="horizontal">
+
+                                                            <androidx.appcompat.widget.AppCompatImageView
+                                                                android:layout_width="19dp"
+                                                                android:layout_height="19dp"
+                                                                android:src="@drawable/ic_localhorario" />
+
+                                                            <TextView
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="19dp"
+                                                                android:layout_marginStart="5dp"
+                                                                android:text="Lun. - Vie. 08:00 a 22:00, Sab. 08:00 a 13:00"
+                                                                android:textSize="14dp" />
+
+                                                        </LinearLayout>
+
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginStart="16dp"
+                                                            android:layout_marginTop="7dp"
+                                                            android:orientation="horizontal">
+
+                                                            <androidx.appcompat.widget.AppCompatImageView
+                                                                android:layout_width="19dp"
+                                                                android:layout_height="19dp"
+                                                                android:src="@drawable/ic_localtelefono" />
+
+                                                            <TextView
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_marginStart="5dp"
+                                                                android:text="3804391610"
+                                                                android:textSize="14dp" />
+
+                                                        </LinearLayout>
+
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginStart="16dp"
+                                                            android:layout_marginTop="7dp"
+                                                            android:orientation="horizontal">
+
+                                                            <androidx.appcompat.widget.AppCompatImageView
+                                                                android:layout_width="19dp"
+                                                                android:layout_height="19dp"
+                                                                android:src="@drawable/ic_localdireccion" />
+
+                                                            <TextView
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_marginStart="5dp"
+                                                                android:text="Base Grenal belgrano 1324 antartinda II"
+                                                                android:textSize="14dp" />
+
+                                                        </LinearLayout>
+                                                        -->
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_margin="10dp"
+                                android:background="#ededed" />
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="Como llegar"
+                                app:chipIcon="@drawable/ic_localdireccion" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/tesgrupo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        app:singleLine="true"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/mujeres"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Mujeres"
+                            android:textAlignment="center" />
+
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/niñas"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Niñas"
+                            android:textAlignment="center" />
+
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/hombres"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Hombres"
+                            android:textAlignment="center" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/niños"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Niños"
+                            android:textAlignment="center" />
+
+                    </com.google.android.material.chip.ChipGroup>
+
+
+                </HorizontalScrollView>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/categoria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+
+                    app:singleLine="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/ropa"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Ropa"
+                        android:textAlignment="center" />
+
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/calzado"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Calzados"
+                        android:textAlignment="center" />
+
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/accesorios"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Accesorios"
+                        android:textAlignment="center" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#ededed" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>
